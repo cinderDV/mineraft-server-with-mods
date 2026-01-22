@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
 
-# Limpiar carpeta de mods con permisos rotos
-echo "Cleaning /data/mods with broken permissions..."
-rm -rf /data/mods
-mkdir -p /data/mods
+# Este script corre como root para poder limpiar permisos rotos
+echo "Cleaning /data/mods with broken permissions (as root)..."
 
-# Llamar al entrypoint original de la imagen
+# Forzar limpieza como root
+rm -rf /data/mods 2>/dev/null || true
+
+# Llamar al entrypoint original que maneja usuarios y permisos
 exec /start

@@ -7,5 +7,8 @@ COPY mods/ /mods/
 COPY entrypoint.sh /custom-entrypoint.sh
 RUN chmod +x /custom-entrypoint.sh
 
+# Asegurar que corremos como root para poder limpiar permisos
+USER root
+
 # Usar el entrypoint personalizado
 ENTRYPOINT ["/custom-entrypoint.sh"]
