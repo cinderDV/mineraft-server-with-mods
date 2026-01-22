@@ -1,25 +1,25 @@
 version: "3.8"
+
 services:
   minecraft:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    tty: true
-    stdin_open: true
+    image: itzg/minecraft-server
+    container_name: minecraft-server
     ports:
       - "25565:25565"
+    env_file:
+      - .env
     environment:
       EULA: "TRUE"
-      TYPE: AUTO_CURSEFORGE
-      CF_API_KEY: ${CF_API_KEY}
-      CF_MODPACK_ZIP: /tmp/modpack.zip
-      CF_SLUG: "custom"
-      MEMORY: "5G"
-      MAX_MEMORY: "8G"
+      TYPE: "NEOFORGE"
+      VERSION: "1.21.1"
+      MEMORY: "4G"
+      CF_API_KEY: ${CF_API_KEY} # Llave aquí
+      CURSEFORGE_FILES: |
+        jei
+        geckolib
+      OPS: "playerName"
     volumes:
-      - minecraft-data:/data
-    restart: unless-stopped
-    user: "1000:1000"
-
-volumes:
-  minecraft-data:
+      - ./minecraft-data:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped 
