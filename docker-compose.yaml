@@ -18,6 +18,7 @@ services:
       - minecraft-data:/data
       - ./:/modpacks:ro
     restart: unless-stopped
+    command: ls -la /modpacks
 
 volumes:
   minecraft-data:
