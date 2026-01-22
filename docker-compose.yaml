@@ -17,9 +17,11 @@ services:
       CURSEFORGE_FILES: |
         jei
         geckolib
-      OPS: "playerName"
+      OPS: "park_vlad"
     volumes:
       - ./minecraft-data:/data
+      - ./mods:/data/mods
     stdin_open: true
     tty: true
     restart: unless-stopped 
+    
