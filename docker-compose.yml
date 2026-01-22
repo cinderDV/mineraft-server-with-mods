@@ -6,70 +6,17 @@ services:
     stdin_open: true
     ports:
       - "25565:25565"
-      - "19565:19565"
     environment:
-      TYPE: "CURSEFORGE"
-      CF_API_KEY: "-tRxgjTD"
-      CF_MODPACK_ZIP: "/modpacks/lolol-1.0.0.zip"
-      MEMORY: "5G"
-      MAX_MEMORY: "8G"
-      EULA: "TRUE"
+      TYPE: ${TYPE}
+      CF_API_KEY: ${CF_API_KEY}
+      CF_MODPACK_ZIP: ${CF_MODPACK_ZIP}
+      MEMORY: ${MEMORY}
+      MAX_MEMORY: ${MAX_MEMORY}
+      EULA: ${EULA}
     volumes:
       - minecraft-data:/data
-      - ./modpacks:/modpacks:ro
+      - ./:/modpacks:ro
     restart: unless-stopped
-    networks:
-      - minecraft
-
-  prometheus:
-    image: bitnami/prometheus
-    tty: true
-    stdin_open: true
-    ports:
-      - "9090:9090"
-    volumes:
-      - prometheus-config:/etc/prometheus
-    restart: unless-stopped
-    networks:
-      - minecraft
-
-  grafana:
-    image: grafana/grafana
-    stdin_open: true
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana-data:/var/lib/grafana
-    restart: unless-stopped
-    networks:
-      - minecraft
-
-  promtail:
-    image: grafana/promtail
-    stdin_open: true
-    volumes:
-      - minecraft-data:/var/log:ro
-      - promtail-config:/etc/promtail
-    restart: unless-stopped
-    networks:
-      - minecraft
-    command: -config.file=/etc/promtail/config.yml
-
-  loki:
-    image: grafana/loki
-    stdin_open: true
-    ports:
-      - "3100:3100"
-    restart: unless-stopped
-    networks:
-      - minecraft
 
 volumes:
   minecraft-data:
-  prometheus-config:
-  grafana-data:
-  promtail-config:
-
-networks:
-  minecraft:
-    name: minecraft
