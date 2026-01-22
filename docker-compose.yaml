@@ -19,6 +19,7 @@ services:
     volumes:
       - minecraft-data:/data
     restart: unless-stopped
+    user: "1000:1000"
 
 volumes:
   minecraft-data:
