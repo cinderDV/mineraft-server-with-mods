@@ -6,22 +6,14 @@ services:
     container_name: minecraft-server
     ports:
       - "25565:25565"
-    env_file:
-      - .env
     environment:
       EULA: "TRUE"
       TYPE: "NEOFORGE"
       VERSION: "1.21.1"
       MEMORY: "4G"
-      CF_API_KEY: ${CF_API_KEY} # Llave aquí
-      CURSEFORGE_FILES: |
-        jei
-        geckolib
-      OPS: "park_vlad"
     volumes:
       - ./minecraft-data:/data
-      - ./mods:/data/mods
+      - ./mods:/mods
     stdin_open: true
     tty: true
-    restart: unless-stopped 
-    
+    restart: unless-stopped
