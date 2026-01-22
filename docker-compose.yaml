@@ -12,7 +12,7 @@ services:
       EULA: "TRUE"
       TYPE: AUTO_CURSEFORGE
       CF_API_KEY: ${CF_API_KEY}
-      CF_MODPACK_ZIP: /data/lolol-1.0.0.zip
+      CF_MODPACK_ZIP: /modpacks/lolol-1.0.0.zip
       CF_SLUG: "custom"
       MEMORY: "5G"
       MAX_MEMORY: "8G"
