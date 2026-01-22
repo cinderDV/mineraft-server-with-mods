@@ -10,10 +10,11 @@ services:
       EULA: "TRUE"
       TYPE: "NEOFORGE"
       VERSION: "1.21.1"
-      MEMORY: "4G"
+      MEMORY: "5G"
+      MODRINTH_PROJECTS: |
+        create
     volumes:
       - ./minecraft-data:/data
-      - ./mods:/data/mods:ro
     stdin_open: true
     tty: true
     restart: unless-stopped
