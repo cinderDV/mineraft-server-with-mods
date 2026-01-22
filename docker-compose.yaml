@@ -1,20 +1,22 @@
 version: "3.8"
 services:
   minecraft:
-    image: itzg/minecraft-server
+    build:
+      context: .
+      dockerfile: Dockerfile
     tty: true
     stdin_open: true
     ports:
       - "25565:25565"
     environment:
       EULA: "TRUE"
-      GENERIC_PACK: /data/lolol-1.0.0.zip
+      TYPE: CURSEFORGE  
+      CF_SERVER_MOD: /modpacks/lolol-1.0.0.zip
       VERSION: "1.19.2"
       MEMORY: "5G"
       MAX_MEMORY: "8G"
     volumes:
       - minecraft-data:/data
-      - ./lolol-1.0.0.zip:/data/lolol-1.0.0.zip:ro
     restart: unless-stopped
 
 volumes:
