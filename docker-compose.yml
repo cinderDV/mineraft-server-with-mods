@@ -9,7 +9,8 @@ services:
     environment:
       TYPE: ${TYPE}
       CF_API_KEY: ${CF_API_KEY}
-      CF_MODPACK_ZIP: ${CF_MODPACK_ZIP}
+      CF_SERVER_MOD: ${CF_SERVER_MOD}
+      VERSION: ${VERSION}
       MEMORY: ${MEMORY}
       MAX_MEMORY: ${MAX_MEMORY}
       EULA: ${EULA}
