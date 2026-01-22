@@ -11,6 +11,9 @@ services:
       TYPE: "NEOFORGE"
       VERSION: "1.21.1"
       MEMORY: "5G"
+      MODRINTH_PROJECTS: |
+        jei
+        waystones
     volumes:
       - ./minecraft-data:/data
     stdin_open: true
