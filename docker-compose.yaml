@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   minecraft:
-    image: itzg/minecraft-server
+    build: .
     tty: true
     stdin_open: true
     ports:
@@ -9,16 +9,14 @@ services:
     environment:
       TYPE: ${TYPE}
       CF_API_KEY: ${CF_API_KEY}
-      CF_SERVER_MOD: ${CF_SERVER_MOD}
+      CF_SERVER_MOD: /modpacks/lolol-1.0.0.zip
       VERSION: ${VERSION}
       MEMORY: ${MEMORY}
       MAX_MEMORY: ${MAX_MEMORY}
       EULA: ${EULA}
     volumes:
       - minecraft-data:/data
-      - ./:/modpacks:ro
     restart: unless-stopped
-    command: ls -la /modpacks
 
 volumes:
   minecraft-data:
