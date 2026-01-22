@@ -11,10 +11,9 @@ services:
       TYPE: "NEOFORGE"
       VERSION: "1.21.1"
       MEMORY: "5G"
-      MODRINTH_PROJECTS: |
-        create
     volumes:
       - ./minecraft-data:/data
+      - ./mods:/data/mods
     stdin_open: true
     tty: true
     restart: unless-stopped
