@@ -11,11 +11,10 @@ services:
       TYPE: "NEOFORGE"
       VERSION: "1.21.1"
       MEMORY: "5G"
-      MODRINTH_PROJECTS: |
-        jei
-        waystones
+      REMOVE_OLD_MODS: "TRUE"
     volumes:
       - ./minecraft-data:/data
+      - ./mods:/mods:ro
     stdin_open: true
     tty: true
     restart: unless-stopped
