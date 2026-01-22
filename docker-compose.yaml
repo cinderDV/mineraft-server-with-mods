@@ -10,8 +10,10 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
-      GENERIC_PACK: /modpacks/lolol-1.0.0.zip
-      VERSION: "1.19.2"
+      TYPE: AUTO_CURSEFORGE
+      CF_API_KEY: "-tRxgjTD"
+      CF_MODPACK_ZIP: /modpacks/lolol-1.0.0.zip
+      CF_SLUG: "custom"
       MEMORY: "5G"
       MAX_MEMORY: "8G"
     volumes:
